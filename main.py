@@ -6,7 +6,6 @@ def onplat():
     for plat in game.platforms:
         if game.player.bottom == plat.top:
             if plat.x-20 <= game.player.x <= plat.x + game.platwidth:
-                print('on platform')
                 return True
             
     print('not on platform')
@@ -55,7 +54,6 @@ class Game:
         else:
             if self.player.y > self.height/3: 
                 self.player.y -= self.jumpspeed 
-                print(self.player.y)
             else: scroll(self.jumpspeed)
             self.jump -= 1
 
