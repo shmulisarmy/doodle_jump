@@ -26,6 +26,7 @@ def fallscroll():
         
 
 class Game:
+    image = p.image.load('image.png')
     def __init__(self):
         self.width, self.height = 400, 800
         if len(sys.argv) > 1:
@@ -82,13 +83,14 @@ class Game:
         if self.player.x < 0: self.player.x = self.width
 
     def render(self, spring):
-        self.window.fill((100, 200, 255))
+        self.window.fill((200, 150, 255))
         for i, plat in enumerate(self.platforms):
             if (i%4 == 0 or i%3 == 1) and i != 4:
                 p.draw.rect(self.window, (100, 100, 100), plat)
             else: p.draw.rect(self.window, (200, 50, 50), plat)
         p.draw.rect(self.window, (200, 100, 100), spring)    
-        p.draw.rect(self.window, (100, 100, 200), self.player)
+        # p.draw.rect(self.window, (100, 100, 200), self.player)
+        game.window.blit(Game.image, (self.player.x, self.player.y))
         p.display.update()
 
     def super_jump(self, spring):
